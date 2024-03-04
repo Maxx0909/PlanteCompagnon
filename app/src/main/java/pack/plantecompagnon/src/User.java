@@ -8,17 +8,24 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class User {
+    @PrimaryKey
     private String pseudo;
     private String email;
     private Date birthDate;
     private int age;
     private String password;
-    private String Gender;
-    private String City;
-    private String Picture;
+    private String gender;
+    private String city;
+    private String picture;
 
-    public User(){
-
+    public User(String pseudo, String email, Date birthDate, String password, String gender, String city, String picture) {
+        this.pseudo = pseudo;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.password = password;
+        this.gender = gender;
+        this.city = city;
+        this.picture = picture;
     }
 
     public void createAccount(String pseudo, String email, Date birthDate, String passWord, String gender, String city, String picture){
