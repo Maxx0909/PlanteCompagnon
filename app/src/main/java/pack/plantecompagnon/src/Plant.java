@@ -75,6 +75,7 @@ public class Plant {
         this.picture = picture;
     }
 
+    /*
     // Méthodes
     public void addNewPlant() {
 
@@ -95,5 +96,7 @@ public class Plant {
     public List<Plant> getListAllPlant() {
         return null;
     }
+
+     */
 
 }

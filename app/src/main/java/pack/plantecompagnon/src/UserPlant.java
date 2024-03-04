@@ -1,12 +1,15 @@
 package pack.plantecompagnon.src;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Entity
+@Entity(foreignKeys = @ForeignKey(entity = User.class, parentColumns = "pseudo", childColumns = "userId"))
 public class UserPlant extends Plant{
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -21,7 +24,18 @@ public class UserPlant extends Plant{
     private String picture;
     private String notes;
 
-    public UserPlant(String name, Date age, PlantStatusList status, int size, boolean favorite, HousePieceList location, Date arrivalDate, PlantOriginList origin, String picture, String notes) {
+    private String userId;
+
+    @Ignore
+    private ArrayList<Reminders> remindersList;
+    @Ignore
+    private ArrayList<PlantProblems> plantProblemsList;
+    @Ignore
+    private ArrayList<PlantCare> plantCareList;
+
+
+
+    public UserPlant(String name, Date age, PlantStatusList status, int size, boolean favorite, HousePieceList location, Date arrivalDate, PlantOriginList origin, String picture, String notes, String userId) {
         super();
         this.name = name;
         this.age = age;
@@ -33,17 +47,15 @@ public class UserPlant extends Plant{
         this.origin = origin;
         this.picture = picture;
         this.notes = notes;
+
+        this.userId = userId;
+
+        remindersList = new ArrayList<Reminders>();
+        plantProblemsList = new ArrayList<PlantProblems>();
+        plantCareList = new ArrayList<PlantCare>();
     }
 
     // Getters et Setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -124,7 +136,16 @@ public class UserPlant extends Plant{
         this.notes = notes;
     }
 
+    public String getUserId() {
+        return userId;
+    }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+
+    /*
     // Méthodes
     public void addNewUserPlant() {
 
@@ -162,4 +183,5 @@ public class UserPlant extends Plant{
     public List<PlantProblems> getAllPlantProblems() {
         return null;
     }
+     */
 }

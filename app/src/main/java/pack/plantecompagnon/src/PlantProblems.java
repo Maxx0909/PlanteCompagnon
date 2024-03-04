@@ -1,21 +1,32 @@
 package pack.plantecompagnon.src;
 
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
+
 import java.util.Date;
 
+@Entity(foreignKeys = @ForeignKey(entity = UserPlant.class, parentColumns = "id", childColumns = "userPlantId"))
 public class PlantProblems {
 
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private ProblemTypeList problemType;
     private Date date;
     private boolean resolutionStatus;
     private String picture;
     private String notes;
 
-    public PlantProblems(ProblemTypeList problemType, Date date, boolean resolutionStatus, String picture, String notes) {
+    private int userPlantId;
+
+    public PlantProblems(ProblemTypeList problemType, Date date, boolean resolutionStatus, String picture, String notes, int userPlantId) {
         this.problemType = problemType;
         this.date = date;
         this.resolutionStatus = resolutionStatus;
         this.picture = picture;
         this.notes = notes;
+
+        this.userPlantId = userPlantId;
     }
 
     public ProblemTypeList getProblemType() {
@@ -58,6 +69,15 @@ public class PlantProblems {
         this.notes = notes;
     }
 
+    public int getUserPlantId() {
+        return userPlantId;
+    }
+
+    public void setUserPlantId(int userPlantId) {
+        this.userPlantId = userPlantId;
+    }
+
+    /*
     //Méthodes
 
     public void addProblem(){
@@ -75,4 +95,6 @@ public class PlantProblems {
     public void setResolved(){
 
     }
+
+     */
 }
