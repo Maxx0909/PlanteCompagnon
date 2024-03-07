@@ -1,4 +1,4 @@
-package pack.plantecompagnon.src;
+package pack.plantecompagnon.src.model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +21,7 @@ public class User {
     private String city;
     private String picture;
 
+    //encore utile les arrayLists ???
     @Ignore
     private ArrayList<PlantWishlist> wishlist;
     @Ignore
@@ -121,22 +122,4 @@ public class User {
     public void setUserPlantList(ArrayList<UserPlant> userPlantList) {
         this.userPlantList = userPlantList;
     }*/
-
-    /*
-    public void createAccount(String pseudo, String email, Date birthDate, String passWord, String gender, String city, String picture){
-
-    }
-
-    public void deleteAccount(){
-
-    }
-
-    public void modifyInformation(String pseudo, String email, Date birthDate, String passWord, String gender, String city, String picture){
-
-    }
-
-    public int getNumberUserPlant(){
-        return 0;
-    }
-    */
 }

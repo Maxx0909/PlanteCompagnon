@@ -1,10 +1,11 @@
-package pack.plantecompagnon.src;
+package pack.plantecompagnon.src.model;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
+
 @Entity(foreignKeys ={
         @ForeignKey(entity = User.class,
                     parentColumns = "pseudo",
@@ -18,7 +19,6 @@ public class PlantWishlist {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    //TO DO : gérer cas de plant
     private int plantId;
     private Date wantedSinceDate;
     private String picture;

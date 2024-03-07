@@ -1,4 +1,4 @@
-package pack.plantecompagnon.src;
+package pack.plantecompagnon.src.model;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -7,10 +7,18 @@ import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
+import pack.plantecompagnon.src.model.HousePieceList;
+import pack.plantecompagnon.src.model.Plant;
+import pack.plantecompagnon.src.model.PlantCare;
+import pack.plantecompagnon.src.model.PlantOriginList;
+import pack.plantecompagnon.src.model.PlantProblems;
+import pack.plantecompagnon.src.model.PlantStatusList;
+import pack.plantecompagnon.src.model.Reminders;
+import pack.plantecompagnon.src.model.User;
 
 @Entity(foreignKeys = @ForeignKey(entity = User.class, parentColumns = "pseudo", childColumns = "userId"))
-public class UserPlant extends Plant{
+public class UserPlant extends Plant {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;

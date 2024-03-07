@@ -1,4 +1,4 @@
-package pack.plantecompagnon.src;
+package pack.plantecompagnon.src.model;
 
 public enum ReminderTypeList {
     ARROSAGE,

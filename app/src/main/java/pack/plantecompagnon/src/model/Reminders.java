@@ -1,4 +1,4 @@
-package pack.plantecompagnon.src;
+package pack.plantecompagnon.src.model;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
