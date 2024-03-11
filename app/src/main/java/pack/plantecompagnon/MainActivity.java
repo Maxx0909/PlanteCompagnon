@@ -2,21 +2,14 @@ package pack.plantecompagnon;
 
 import android.os.Bundle;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-import pack.plantecompagnon.databinding.ActivityMainBinding;
-import pack.plantecompagnon.databinding.FragmentConnexionBinding;
+import pack.plantecompagnon.databinding.ActivityConnexionBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     //private ActivityMainBinding binding;
-    private FragmentConnexionBinding binding;
+    private ActivityConnexionBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
         //binding = ActivityMainBinding.inflate(getLayoutInflater());
 
         //setContentView(binding.getRoot());
-        setContentView(R.layout.fragment_connexion);
-        FragmentConnexionBinding.inflate(getLayoutInflater());
+        setContentView(R.layout.activity_connexion);
+        ActivityConnexionBinding.inflate(getLayoutInflater());
 
         /*
         BottomNavigationView navView = findViewById(R.id.nav_view);

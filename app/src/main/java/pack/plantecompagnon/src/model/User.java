@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -11,9 +12,10 @@ import androidx.room.PrimaryKey;
 @Entity
 public class User {
     @PrimaryKey
+    @NonNull
     private String pseudo;
     private String email;
-    private Date birthDate;
+    private String birthDate;
     @Ignore
     private int age;
     private String password;
@@ -27,7 +29,7 @@ public class User {
     @Ignore
     private ArrayList<UserPlant> userPlantList;
 
-    public User(String pseudo, String email, Date birthDate, String password, String gender, String city, String picture) {
+    public User(String pseudo, String email, String birthDate, String password, String gender, String city, String picture) {
         this.pseudo = pseudo;
         this.email = email;
         this.birthDate = birthDate;
@@ -58,11 +60,11 @@ public class User {
         this.email = email;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

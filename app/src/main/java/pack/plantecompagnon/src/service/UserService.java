@@ -1,5 +1,10 @@
 package pack.plantecompagnon.src.service;
 
+import android.os.Handler;
+import android.os.Looper;
+
+import androidx.core.util.Consumer;
+
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -35,7 +40,7 @@ public class UserService {
             //gender
             String newGender = gender.toString().toLowerCase();
 
-            User user = new User(pseudo, email, birthDate, hashPassword, newGender, city, picture);
+            User user = new User(pseudo, email, birthDate.toString(), hashPassword, newGender, city, picture);
 
             userDao.insert(user);
        });
@@ -49,7 +54,7 @@ public class UserService {
         executorService.execute(() -> {
             user.setPseudo(pseudo);
             user.setEmail(email);
-            user.setBirthDate(birthDate);
+            user.setBirthDate(birthDate.toString());
             user.setGender(gender.toString().toLowerCase());
             user.setCity(city);
             user.setPicture(picture);
@@ -64,6 +69,7 @@ public class UserService {
         });
     }
 
+    /*
     public int getNumberUserPlant(String pseudo){
         return userDao.getCountUserPlant(pseudo);
     }
@@ -76,6 +82,24 @@ public class UserService {
     public ArrayList<PlantWishlist> getWhishList(String pseudo){
         return new ArrayList<>(userDao.getWhishList(pseudo));
     }
+
+     */
+
+    private boolean result = false;
+    public void connexion(String email, String password, Consumer<Boolean> callback){
+
+        executorService.execute(() -> {
+            User user = userDao.findByEmail(email);
+            result = false;
+            if(user != null && BCrypt.checkpw(password, user.getPassword())){
+                result = true;
+            }
+            // Assurez-vous que le callback soit exécuté sur le thread UI si vous mettez à jour l'interface utilisateur
+            new Handler(Looper.getMainLooper()).post(() -> callback.accept(result));
+        });
+    }
+
+
 
     /*****
      *

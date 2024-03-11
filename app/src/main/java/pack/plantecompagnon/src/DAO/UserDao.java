@@ -24,7 +24,7 @@ public interface UserDao {
     @Delete
     void delete(User userPlant);
 
-
+/* A decommenter quand la classe Plante est faite
     //récupérer la liste de toute les plantes de l'utilisateur
     @Query("SELECT * FROM UserPlant  WHERE userId = :pseudo ")
     List<UserPlant> getAllUserPlant(String pseudo);
@@ -37,4 +37,9 @@ public interface UserDao {
     @Query("SELECT count(*) FROM UserPlant WHERE userId = :pseudo")
     int getCountUserPlant(String pseudo);
 
+    */
+
+    //récupére 1 User en fonction de son email
+    @Query("SELECT * FROM User WHERE email = :email")
+    User findByEmail(String email);
 }
