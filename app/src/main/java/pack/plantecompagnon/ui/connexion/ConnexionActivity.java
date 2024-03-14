@@ -1,7 +1,6 @@
 package pack.plantecompagnon.ui.connexion;
 
 import android.content.Intent;
-import android.widget.Button;
 import android.widget.EditText;
 import android.os.Bundle;
 import android.view.View;
@@ -21,10 +20,9 @@ import pack.plantecompagnon.ui.register.*;
 
 public class ConnexionActivity extends AppCompatActivity {
 
-    private EditText email;
+    private EditText pseudo;
     private EditText password;
-    private Button login;
-    private Button register;
+
 
 
     @Override
@@ -35,17 +33,14 @@ public class ConnexionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connexion);
 
         // récup les composants
-        email = findViewById(R.id.email);
+        pseudo = findViewById(R.id.pseudo);
         password = findViewById(R.id.password);
-        login = findViewById(R.id.buttonLogin);
-        register = findViewById(R.id.buttonRegister);
-
     }
 
     //quand on click sur le bouton Login
     public void onLoginButtonClick(View view) {
 
-        if(email.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
+        if(pseudo.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
             Toast toast = Toast.makeText(this, "Merci de remplir les deux champs pour vous connecter", Toast.LENGTH_SHORT);
             toast.show();
             return;
@@ -71,7 +66,10 @@ public class ConnexionActivity extends AppCompatActivity {
         };
 
         //demande de connexion
-        userService.connexion(email.getText().toString(), password.getText().toString(), callback);
+        userService.connexion(pseudo.getText().toString(), password.getText().toString(), callback);
+
+        //détruire le service pour éviter les fuites mémoires
+        userService.shutdownExecutor();
 
     }
 

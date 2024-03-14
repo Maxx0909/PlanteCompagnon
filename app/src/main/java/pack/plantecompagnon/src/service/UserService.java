@@ -86,15 +86,14 @@ public class UserService {
      */
 
     private boolean result = false;
-    public void connexion(String email, String password, Consumer<Boolean> callback){
+    public void connexion(String pseudo, String password, Consumer<Boolean> callback){
 
         executorService.execute(() -> {
-            User user = userDao.findByEmail(email);
+            User user = userDao.findByPseudo(pseudo);
             result = false;
             if(user != null && BCrypt.checkpw(password, user.getPassword())){
                 result = true;
             }
-            // Assurez-vous que le callback soit exécuté sur le thread UI si vous mettez à jour l'interface utilisateur
             new Handler(Looper.getMainLooper()).post(() -> callback.accept(result));
         });
     }
