@@ -101,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:inputType="textPassword"
-        android:hint="Ville"
+        android:hint="Grenoble"
         android:textSize="17sp"/>
 
     <TextView

@@ -98,6 +98,14 @@ public class UserService {
         });
     }
 
+    public void findUserAlreadyRegister(String pseudo, Consumer<Boolean> callback){
+        executorService.execute(() -> {
+            User user = userDao.findByPseudo(pseudo);
+            result = user != null;
+            new Handler(Looper.getMainLooper()).post(() -> callback.accept(result));
+        });
+    }
+
 
 
     /*****

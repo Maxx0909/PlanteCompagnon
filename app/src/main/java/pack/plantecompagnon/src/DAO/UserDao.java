@@ -39,7 +39,7 @@ public interface UserDao {
 
     */
 
-    //récupére 1 User en fonction de son email
+    //récupére 1 User en fonction de son pseudo
     @Query("SELECT * FROM User WHERE pseudo = :pseudo")
     User findByPseudo(String pseudo);
 }
