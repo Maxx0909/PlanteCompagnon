@@ -3,25 +3,31 @@ package pack.plantecompagnon;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import pack.plantecompagnon.databinding.ActivityConnexionBinding;
+import pack.plantecompagnon.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    //private ActivityMainBinding binding;
-    private ActivityConnexionBinding binding;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
 
-        //setContentView(binding.getRoot());
-        setContentView(R.layout.activity_connexion);
+        setContentView(binding.getRoot());
+
         ActivityConnexionBinding.inflate(getLayoutInflater());
 
-        /*
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -30,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        //NavigationUI.setupWithNavController(binding.navView, navController);
-        */
+        NavigationUI.setupWithNavController(binding.navView, navController);
+
 
     }
 
