@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textStyle="bold"
         android:layout_marginTop="20px"
         android:layout_marginBottom="50px"
         android:text="Inscription sur Plante Compagnon : "
@@ -20,6 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pseudo *"
+        android:textStyle="bold"
         android:textSize="17sp"
         android:layout_marginLeft="50px"/>
 
@@ -34,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email *"
+        android:textStyle="bold"
         android:textSize="17sp"
         android:layout_marginLeft="50px"/>
 
@@ -48,6 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mot de passe *"
+        android:textStyle="bold"
         android:textSize="17sp"
         android:layout_marginLeft="50px"/>
 
@@ -63,6 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date de naissance "
+        android:textStyle="bold"
         android:textSize="17sp"
         android:layout_marginLeft="50px"/>
 
@@ -78,6 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Genre "
+        android:textStyle="bold"
         android:textSize="17sp"
         android:layout_marginLeft="50px"/>
 
@@ -92,6 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ville "
+        android:textStyle="bold"
         android:textSize="17sp"
         android:layout_marginLeft="50px"/>
 

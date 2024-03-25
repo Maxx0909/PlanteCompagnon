@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     //quand on clique sur le bouton s'inscrire
     public void onRegisterButtonClick(View view) {
-/*
+
         //vérification que tous les champs obligatoire soient rempli
         if(pseudo.getText().toString().isEmpty() || email.getText().toString().isEmpty()
                 || password.getText().toString().isEmpty()) {
@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
             toast.show();
             return;
         }
- */
+
 
         UserDao userDao = DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().userDao();
         UserService userService = new UserService(userDao);
@@ -95,8 +95,6 @@ public class RegisterActivity extends AppCompatActivity {
         Date dateEnter = new Date(timeInMillis);
 
         //Date dateEnter = new Date(birthDate.getYear(), birthDate.getMonth(), birthDate.getDayOfMonth());
-
-/* bug ici quand on veut s'inscrire 2 fois avec les memes infos*/
 
         //récupére le résultat de la méthode connexion
         Consumer<Boolean> callback = success -> {
