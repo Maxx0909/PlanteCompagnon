@@ -6,17 +6,135 @@
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileFragment">
 
-    <TextView
-        android:id="@+id/text_profile"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#196F3D"
+            >
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_launcher_foreground"
+                    />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    android:id="@+id/pseudoProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:text="Pseudo"
+                    />
+
+                <TextView
+                    android:id="@+id/nbPlantesProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textStyle="italic"
+                    android:layout_margin="20dp"
+                    android:textSize="20sp"
+                    android:text="parent de XXXX plantes"
+
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/emailProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="20dp"
+            android:text="Email : "
+            />
+
+        <TextView
+            android:id="@+id/birthDateProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="20dp"
+            android:text="Date de naissance : "
+            />
+
+        <TextView
+            android:id="@+id/genderProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="20dp"
+            android:text="Genre : "
+            />
+
+        <TextView
+            android:id="@+id/cityProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="20dp"
+            android:text="City : "
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/buttonModify"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Modifier les informations"
+            android:layout_gravity="center"
+            android:onClick="onModifyButtonClick"
+            />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Supprimer le compte"
+            android:layout_gravity="center"
+            android:layout_marginBottom="100px"
+            android:onClick="onDeletingButtonClick"
+            />
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

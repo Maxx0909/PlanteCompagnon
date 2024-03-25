@@ -69,6 +69,14 @@ public class UserService {
         });
     }
 
+    public void getUser(String pseudo, Consumer<User> callback){
+        executorService.execute(() -> {
+            User user = userDao.findByPseudo(pseudo);
+            new Handler(Looper.getMainLooper()).post(() -> callback.accept(user));
+        });
+
+    }
+
     /*
     public int getNumberUserPlant(String pseudo){
         return userDao.getCountUserPlant(pseudo);
