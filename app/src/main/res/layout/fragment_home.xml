@@ -12,11 +12,12 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="50px"
-            android:text="Bienvenue XXXXXX"
+            android:text="Bienvenue "
             android:textSize="20sp"
             />
 

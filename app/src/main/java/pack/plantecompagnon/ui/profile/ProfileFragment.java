@@ -42,11 +42,12 @@ public class ProfileFragment extends Fragment {
     private Button modifyButton;
     private Button deleteButton;
 
+    private String pseudo = "";
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
-
 
         pseudoText = root.findViewById(R.id.pseudoProfile);
         nbPlantText = root.findViewById(R.id.nbPlantesProfile);
@@ -86,7 +87,12 @@ public class ProfileFragment extends Fragment {
     }
 
     private void initInformations() {
-        User user;
+
+        //récupérer le pseudo de l'activité
+        if (getActivity() instanceof MainActivity) {
+            MainActivity activity = (MainActivity) getActivity();
+            pseudo = activity.pseudo;
+        }
 
         UserDao userDao = DatabaseClient.getInstance(getContext()).getAppDatabase().userDao();
         UserService userService = new UserService(userDao);
@@ -115,9 +121,7 @@ public class ProfileFragment extends Fragment {
             });
         };
 
-        // TODO: 25/03/2024 MODIFIER ICI POUR R2CUPERER LES INFOS DE L'UTILISATEUR CONNECTé 
-        userService.getUser("Max", callback);
-
+        userService.getUser(pseudo, callback);
     }
 
     private String[] parseDate(String stringToSplit){

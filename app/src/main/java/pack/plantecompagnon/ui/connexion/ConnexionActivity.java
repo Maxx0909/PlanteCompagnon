@@ -57,6 +57,7 @@ public class ConnexionActivity extends AppCompatActivity {
                     // Connexion réussie, afficher un Toast et changer d'Activity
                     Toast.makeText(this, "Bienvenue sur Plante Compagnon", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, MainActivity.class);
+                    intent.putExtra("pseudo", pseudo.getText().toString());
                     startActivity(intent);
                 } else {
                     // Échec de la connexion, afficher un message d'erreur
