@@ -12,8 +12,12 @@ public class DatabaseClient {
     private DatabaseClient(Context context) {
         this.context = context;
 
+        // TODO: 28/03/2024 .fallback à modifier lors de la mise en prod : actuellement les maj de la BD supprime toutes les données...
         //créer la BD
-        appDatabase = Room.databaseBuilder(context, AppDatabase.class, "MyDatabase.db").build();
+        appDatabase = Room.databaseBuilder(context.getApplicationContext(),
+                        AppDatabase.class, "MyDatabase.db")
+                .fallbackToDestructiveMigration()
+                .build();
     }
 
     //format singleton
