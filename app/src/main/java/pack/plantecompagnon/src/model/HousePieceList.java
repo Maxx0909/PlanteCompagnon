@@ -1,5 +1,7 @@
 package pack.plantecompagnon.src.model;
 
+import java.util.ArrayList;
+
 public enum HousePieceList {
     BALCON,
     BUREAU,
@@ -13,5 +15,18 @@ public enum HousePieceList {
     TERRASSE,
     VERANDA,
     WC,
-    AUTRE
+    AUTRE;
+
+    //méthode pour renvoyer les valeurs de l'énumération
+    public static ArrayList<HousePieceList> getHousePieceList(){
+        ArrayList<HousePieceList> housePieceList = new ArrayList<HousePieceList>();
+
+        for (int i=0; i<values().length; i++){
+            housePieceList.add(HousePieceList.valueOf(values()[i].name()));
+        }
+
+        return housePieceList;
+    }
+
+
 }
