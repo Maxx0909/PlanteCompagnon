@@ -18,17 +18,18 @@ import pack.plantecompagnon.src.model.Reminders;
 import pack.plantecompagnon.src.model.User;
 
 @Entity(foreignKeys = @ForeignKey(entity = User.class, parentColumns = "pseudo", childColumns = "userId"))
-public class UserPlant extends Plant {
+public class UserPlant /* extends Plant */ {
+
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
-    private Date age;
-    private PlantStatusList status;
+    private int age;
+    private String status;
     private int size;
     private boolean favorite;
-    private HousePieceList location;
-    private Date arrivalDate;
-    private PlantOriginList origin;
+    private String location;
+    private String arrivalDate;
+    private String origin;
     private String picture;
     private String notes;
 
@@ -43,7 +44,7 @@ public class UserPlant extends Plant {
 
 
 
-    public UserPlant(String name, Date age, PlantStatusList status, int size, boolean favorite, HousePieceList location, Date arrivalDate, PlantOriginList origin, String picture, String notes, String userId) {
+    public UserPlant(String name, int age, String status, int size, boolean favorite, String location, String arrivalDate, String origin, String picture, String notes, String userId) {
         super();
         this.name = name;
         this.age = age;
@@ -64,6 +65,15 @@ public class UserPlant extends Plant {
     }
 
     // Getters et Setters
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -72,19 +82,19 @@ public class UserPlant extends Plant {
         this.name = name;
     }
 
-    public Date getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Date age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
-    public PlantStatusList getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(PlantStatusList status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -104,27 +114,27 @@ public class UserPlant extends Plant {
         this.favorite = favorite;
     }
 
-    public HousePieceList getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(HousePieceList location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public Date getArrivalDate() {
+    public String getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(String arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
-    public PlantOriginList getOrigin() {
+    public String getOrigin() {
         return origin;
     }
 
-    public void setOrigin(PlantOriginList origin) {
+    public void setOrigin(String origin) {
         this.origin = origin;
     }
 
@@ -152,44 +162,4 @@ public class UserPlant extends Plant {
         this.userId = userId;
     }
 
-
-    /*
-    // Méthodes
-    public void addNewUserPlant() {
-
-    }
-
-    public void deleteUserPlant() {
-
-    }
-
-    public void addUserPlantToFavorite(UserPlant plant) {
-
-    }
-
-    public void removeUserPlantFromFavorite(UserPlant plant) {
-
-    }
-
-    @Override
-    public void modifyPlant() {
-        super.modifyPlant();
-    }
-
-    public List<Plant> findUserPlant(String search) {
-        return null;
-    }
-
-    public List<Plant> getAllFavorite() {
-        return null;
-    }
-
-    public List<Reminders> getAllPlantReminders() {
-        return null;
-    }
-
-    public List<PlantProblems> getAllPlantProblems() {
-        return null;
-    }
-     */
 }

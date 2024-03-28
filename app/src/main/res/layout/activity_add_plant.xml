@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="50px"
+        android:text="Ajouter une plante : "
+        android:textSize="20sp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nom *"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginLeft="50px"/>
+
+            <EditText
+                android:id="@+id/plantName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Bernadette" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginLeft="50px"/>
+
+            <EditText
+                android:id="@+id/plantAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="number"
+                android:hint="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Taille (en cm)"
+
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginLeft="50px"/>
+
+
+
+            <EditText
+                android:id="@+id/plantSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="number"
+                android:hint="10 cm" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date d'arrivé dans la maison "
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginLeft="50px"/>
+
+            <DatePicker
+                android:id="@+id/plantDateArrival"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status "
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginLeft="50px"/>
+
+            <Spinner
+                android:id="@+id/plantStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Localisation dans la maison "
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginLeft="50px"/>
+
+            <Spinner
+                android:id="@+id/plantLocalization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Origine "
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginLeft="50px"/>
+
+            <Spinner
+                android:id="@+id/plantOrigin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notes "
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginLeft="50px"/>
+
+            <EditText
+                android:id="@+id/plantNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Entrez vos notes ici"
+                android:minLines="5"
+                android:maxLines="10"
+                android:scrollbars="vertical"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorite "
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginLeft="50px"/>
+
+            <CheckBox
+                android:id="@+id/plantFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plante favorite ? (cocher = oui)"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Ajouter une photo (en cours d'implémentation)" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonAddPlant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50px"
+        android:layout_marginBottom="20px"
+        android:onClick="onAddPlantButtonClick"
+        android:text="Ajouter une nouvelle Plante" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Les champs marqué avec * sont obligatoire" />
+
+</LinearLayout>
+
