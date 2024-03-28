@@ -52,7 +52,7 @@ public class UserService {
 
     public void modifyInformation(User user, String pseudo, String email, Date birthDate, String password, GenderList gender, String city, String picture){
         executorService.execute(() -> {
-            user.setPseudo(pseudo);
+            //user.setPseudo(pseudo);
             user.setEmail(email);
             user.setBirthDate(birthDate.toString());
             user.setGender(gender.toString().toLowerCase());

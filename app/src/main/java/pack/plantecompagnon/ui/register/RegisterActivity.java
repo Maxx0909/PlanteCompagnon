@@ -1,6 +1,5 @@
 package pack.plantecompagnon.ui.register;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,12 +22,7 @@ import pack.plantecompagnon.R;
 import pack.plantecompagnon.src.model.GenderList;
 
 import pack.plantecompagnon.src.DAO.UserDao;
-import pack.plantecompagnon.src.model.User;
 import pack.plantecompagnon.src.service.UserService;
-import pack.plantecompagnon.ui.home.HomeViewModel;
-import pack.plantecompagnon.ui.register.*;
-
-import pack.plantecompagnon.src.model.GenderList;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -79,12 +73,9 @@ public class RegisterActivity extends AppCompatActivity {
         UserDao userDao = DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().userDao();
         UserService userService = new UserService(userDao);
 
-
         GenderList genderEnter = (GenderList) gender.getSelectedItem();
 
-        //pour la date : constructeur Date(int year, int month, int day) deprecated : obligé de passer par calendar
         Calendar calendar = Calendar.getInstance();
-
         calendar.clear();
 
         calendar.set(Calendar.YEAR, birthDate.getYear());
@@ -94,14 +85,13 @@ public class RegisterActivity extends AppCompatActivity {
         long timeInMillis = calendar.getTimeInMillis();
         Date dateEnter = new Date(timeInMillis);
 
-        //Date dateEnter = new Date(birthDate.getYear(), birthDate.getMonth(), birthDate.getDayOfMonth());
-
         //récupére le résultat de la méthode connexion
         Consumer<Boolean> callback = success -> {
             runOnUiThread(() -> {
                 if (!success) {
                     //création du compte
-                    userService.createAccount(pseudo.getText().toString(),
+                    userService.createAccount(
+                            pseudo.getText().toString(),
                             email.getText().toString(),
                             dateEnter,
                             password.getText().toString(),
@@ -113,8 +103,9 @@ public class RegisterActivity extends AppCompatActivity {
                     userService.shutdownExecutor();
 
                     //changement de vue
-                    //Intent intent = new Intent(this, .class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(this, MainActivity.class);
+                    intent.putExtra("pseudo", pseudo.getText().toString());
+                    startActivity(intent);
                 } else {
                     // Échec de la connexion, afficher un message d'erreur
                     Toast.makeText(this, "Erreur un utilisateur a déjà ce pseudo : veuillez en choisir un autre", Toast.LENGTH_SHORT).show();
@@ -127,6 +118,5 @@ public class RegisterActivity extends AppCompatActivity {
 
         //vérifier qu'un autre utilisateur n'a pas déjà le pseudo en question
         userService.findUserAlreadyRegister(pseudo.getText().toString(), callback);
-
     }
 }
