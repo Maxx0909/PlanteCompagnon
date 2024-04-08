@@ -3,6 +3,7 @@ package pack.plantecompagnon.src.DAO;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 import androidx.room.Update;
 
 
@@ -19,6 +20,9 @@ public interface UserPlantDao {
 
     @Delete
     void delete(UserPlant userPlant);
+
+    @Query("SELECT * FROM USERPLANT WHERE id = :id")
+    UserPlant findById(int id);
 
 
 

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#196F3D"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_launcher_foreground"
+                    />
+
+            </FrameLayout>
+
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/namePagePlant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Nom : "
+            />
+
+        <TextView
+            android:id="@+id/agePagePlant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Age : "
+            />
+
+        <TextView
+            android:id="@+id/statusPagePlant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Status : "
+            />
+
+        <TextView
+            android:id="@+id/sizePagePlant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Size : "
+            />
+
+        <TextView
+            android:id="@+id/localizationPagePlant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Localisation : "
+            />
+
+        <TextView
+            android:id="@+id/dateArrivalPagePlant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Date d'arrivée : "
+            />
+
+        <TextView
+            android:id="@+id/originPagePlant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Origine : "
+            />
+
+        <TextView
+            android:id="@+id/notesPagePlant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Notes : "
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+
+        <Button
+            android:id="@+id/buttonPlantReminder"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Ajouter un rappel"
+            android:layout_gravity="center"
+            android:onClick="onAddReminderButtonClick"
+            />
+
+        <Button
+            android:id="@+id/buttonPlantCare"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Ajouter un soin"
+            android:layout_gravity="center"
+            android:onClick="onAddCareButtonClick"
+            />
+
+
+        <Button
+            android:id="@+id/buttonPlantProblem"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Ajouter un problème"
+            android:layout_gravity="center"
+            android:layout_marginBottom="100px"
+            android:onClick="onAddProblemButtonClick"
+            />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

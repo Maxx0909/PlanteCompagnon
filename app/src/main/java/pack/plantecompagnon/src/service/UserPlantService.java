@@ -1,6 +1,9 @@
 package pack.plantecompagnon.src.service;
 
-import android.text.Editable;
+import android.os.Handler;
+import android.os.Looper;
+
+import androidx.core.util.Consumer;
 
 import java.util.Date;
 import java.util.List;
@@ -83,6 +86,13 @@ public class UserPlantService {
 
     public List<UserPlant> getAllFavorite() {
         return null;
+    }
+
+    public void getPlantById(int id, Consumer<UserPlant> callback){
+        executorService.execute(() -> {
+            UserPlant userPlant = userPlantDao.findById(id);
+            new Handler(Looper.getMainLooper()).post(() -> callback.accept(userPlant));
+        });
     }
 
     /*
