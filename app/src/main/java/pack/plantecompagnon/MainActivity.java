@@ -14,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import pack.plantecompagnon.databinding.ActivityConnexionBinding;
 import pack.plantecompagnon.databinding.ActivityMainBinding;
-import pack.plantecompagnon.ui.add_plant.AddPlantActivity;
+import pack.plantecompagnon.ui.add_user_plant.AddUserPlantActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onAddPlantButtonClick(View view) {
         //changement de vue
-        Intent intent = new Intent(this, AddPlantActivity.class);
+        Intent intent = new Intent(this, AddUserPlantActivity.class);
         intent.putExtra("pseudo", pseudo);
         startActivity(intent);
     }

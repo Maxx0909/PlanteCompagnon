@@ -1,6 +1,5 @@
 package pack.plantecompagnon.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +8,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import pack.plantecompagnon.MainActivity;
 import pack.plantecompagnon.R;
 import pack.plantecompagnon.databinding.FragmentHomeBinding;
-import pack.plantecompagnon.ui.add_plant.AddPlantActivity;
-import pack.plantecompagnon.ui.register.RegisterActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -55,7 +51,7 @@ public class HomeFragment extends Fragment {
     /*
     public void onAddPlantButtonClick(View view) {
         //changement de vue
-        Intent intent = new Intent(this.getActivity(), AddPlantActivity.class);
+        Intent intent = new Intent(this.getActivity(), AddUserPlantActivity.class);
         intent.putExtra("pseudo", pseudo);
         startActivity(intent);
     }

@@ -1,4 +1,4 @@
-package pack.plantecompagnon.ui.add_plant;
+package pack.plantecompagnon.ui.add_user_plant;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +24,7 @@ import pack.plantecompagnon.src.model.PlantOriginList;
 import pack.plantecompagnon.src.model.PlantStatusList;
 import pack.plantecompagnon.src.service.UserPlantService;
 
-public class AddPlantActivity extends AppCompatActivity {
+public class AddUserPlantActivity extends AppCompatActivity {
 
     private EditText nameEditText;
     private EditText ageEditText;

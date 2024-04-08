@@ -19,7 +19,7 @@
             </intent-filter>/>
         </activity>
         <activity android:name=".ui.register.RegisterActivity"/>
-        <activity android:name=".ui.add_plant.AddPlantActivity"/>
+        <activity android:name=".ui.add_user_plant.AddUserPlantActivity"/>
     </application>
 
 </manifest>
