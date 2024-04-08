@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".ui.register.RegisterActivity"/>
         <activity android:name=".ui.add_user_plant.AddUserPlantActivity"/>
+        <activity android:name=".ui.information_user_plant.InformationUserPlantActivity"/>
+
     </application>
 
 </manifest>

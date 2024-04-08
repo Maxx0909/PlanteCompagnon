@@ -1,6 +1,8 @@
 package pack.plantecompagnon.ui.information_user_plant;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,7 +15,7 @@ import pack.plantecompagnon.src.DAO.UserPlantDao;
 import pack.plantecompagnon.src.model.UserPlant;
 import pack.plantecompagnon.src.service.UserPlantService;
 
-public class InformationUserPlant extends AppCompatActivity {
+public class InformationUserPlantActivity extends AppCompatActivity {
 
     private TextView nameTextView;
     private TextView ageTextView;
@@ -24,12 +26,19 @@ public class InformationUserPlant extends AppCompatActivity {
     private TextView originTextView;
     private TextView notesTextView;
 
-
+    private String id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_user_plant);
+
+        //récupérer l'id passé à l'activité
+        Intent intent = getIntent();
+
+        if(intent != null){
+            id = intent.getStringExtra("id");
+        }
 
         nameTextView = findViewById(R.id.namePagePlant);
         ageTextView = findViewById(R.id.agePagePlant);
@@ -48,7 +57,7 @@ public class InformationUserPlant extends AppCompatActivity {
 
     private void initInformation(int id) {
 
-        UserPlantDao userPlantDao = (UserPlantDao) DatabaseClient.getInstance(this).getAppDatabase().userDao();
+        UserPlantDao userPlantDao = (UserPlantDao) DatabaseClient.getInstance(this).getAppDatabase().userPlantDao();
         UserPlantService userPlantService = new UserPlantService(userPlantDao);
 
         Consumer<UserPlant> callback = userPlantDB -> {
@@ -87,19 +96,19 @@ public class InformationUserPlant extends AppCompatActivity {
 
 
     // TODO: 04/04/2024 faire les 3 méthodes pour les boutons 
-    public void onAddReminderButtonClick(){
+    public void onAddReminderButtonClick(View view){
         Toast toast = Toast.makeText(
                 this, "En cour d'implémentation", Toast.LENGTH_SHORT);
         toast.show();
     }
 
-    public void onAddCareButtonClick(){
+    public void onAddCareButtonClick(View view){
         Toast toast = Toast.makeText(
                 this, "En cour d'implémentation", Toast.LENGTH_SHORT);
         toast.show();
     }
 
-    public void onAddProblemButtonClick(){
+    public void onAddProblemButtonClick(View view){
         Toast toast = Toast.makeText(
                 this, "En cour d'implémentation", Toast.LENGTH_SHORT);
         toast.show();
