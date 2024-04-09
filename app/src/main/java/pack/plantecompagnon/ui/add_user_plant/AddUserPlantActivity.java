@@ -141,7 +141,6 @@ public class AddUserPlantActivity extends AppCompatActivity {
                 pseudo
         );
 
-        // TODO: 28/03/2024 A vérifier que l'exécution se fait bien avant d'arreter le service...
         userPlantService.shutdownExecutor();
 
         Toast toast = Toast.makeText(this,

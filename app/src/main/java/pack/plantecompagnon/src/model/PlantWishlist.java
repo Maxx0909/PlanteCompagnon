@@ -73,31 +73,4 @@ public class PlantWishlist {
         this.userId = userId;
     }
 
-    /*
-    // Méthodes
-    public void addPlantToWishList(int plant) {
-
-    }
-
-    public void removePlantFromWishList(int plant) {
-
-    }
-
-    public void removeAllPlantFromWishList() {
-
-    }
-
-    public void modifyWishListNotes() {
-
-    }
-
-    public int getPlantDetails() {
-        return null;
-    }
-
-    public int findPlantInWishList(String search) {
-        return null;
-    }
-
-     */
 }

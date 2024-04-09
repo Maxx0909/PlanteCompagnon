@@ -103,18 +103,6 @@ public class UserPlantService {
         });
     }
 
-
-    /*
-    public List<Reminders> getAllPlantReminders() {
-        return null;
-    }
-
-    public List<PlantProblems> getAllPlantProblems() {
-        return null;
-    }
-
-     */
-
     public void shutdownExecutor() {
         executorService.shutdown();
     }

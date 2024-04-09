@@ -8,7 +8,7 @@ public enum PlantStatusList {
     FLORAISON,
     HIBERNATION,
     MALADE,
-    MORT;
+    MORTE;
 
     //méthode pour renvoyer les valeurs de l'énumération
     public static ArrayList<PlantStatusList> getPlantStatusList(){

@@ -1,6 +1,5 @@
 package pack.plantecompagnon.src.DAO;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -24,6 +23,7 @@ public interface UserPlantDao {
     @Delete
     void delete(UserPlant userPlant);
 
+    //récupére les informations de la plante d'id id
     @Query("SELECT * FROM USERPLANT WHERE id = :id")
     UserPlant findById(int id);
 

@@ -35,7 +35,6 @@ public class UserService {
             //hacher le password : utilisation de la fonction de hachage Bcrypt (rajoute du sel dans le hashage pour plus de sécurité)
             String hashPassword = BCrypt.hashpw(password, BCrypt.gensalt()) ;
 
-            //gender
             String newGender = gender.toString().toLowerCase();
 
             User user = new User(pseudo, email, birthDate.toString(), hashPassword, newGender, city, picture);

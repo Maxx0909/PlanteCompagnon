@@ -49,10 +49,7 @@ public class InformationUserPlantActivity extends AppCompatActivity {
         originTextView = findViewById(R.id.originPagePlant);
         notesTextView = findViewById(R.id.notesPagePlant);
 
-        // TODO: 04/04/2024 changer le numéro id pour le récupérer par la page qui appel this 
-
         initInformation(id);
-
     }
 
     private void initInformation(int id) {
@@ -78,9 +75,7 @@ public class InformationUserPlantActivity extends AppCompatActivity {
             });
         };
 
-
         userPlantService.getPlantById(id, callback);
-
     }
 
     private String[] parseDate(String stringToSplit){
@@ -113,5 +108,4 @@ public class InformationUserPlantActivity extends AppCompatActivity {
                 this, "En cour d'implémentation", Toast.LENGTH_SHORT);
         toast.show();
     }
-
 }

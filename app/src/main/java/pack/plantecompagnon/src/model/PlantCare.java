@@ -47,22 +47,6 @@ public class PlantCare {
         this.userPlantId = userPlantId;
     }
 
-
-
-    /*
-    public void addNewCare(){
-
-    }
-
-    public void modifyCare(){
-
-    }
-
-    public void deleteCare(){
-
-    }
-
-     */
 }
 
 

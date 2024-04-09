@@ -69,7 +69,6 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-
         UserDao userDao = DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().userDao();
         UserService userService = new UserService(userDao);
 

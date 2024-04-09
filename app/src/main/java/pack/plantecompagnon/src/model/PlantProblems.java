@@ -77,24 +77,4 @@ public class PlantProblems {
         this.userPlantId = userPlantId;
     }
 
-    /*
-    //Méthodes
-
-    public void addProblem(){
-
-    }
-
-    public void modifyProblem(){
-
-    }
-
-    public void deleteProblem(){
-
-    }
-
-    public void setResolved(){
-
-    }
-
-     */
 }

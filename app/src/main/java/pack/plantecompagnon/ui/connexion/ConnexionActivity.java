@@ -14,7 +14,6 @@ import pack.plantecompagnon.MainActivity;
 import pack.plantecompagnon.R;
 
 import pack.plantecompagnon.src.DAO.UserDao;
-import pack.plantecompagnon.src.model.User;
 import pack.plantecompagnon.src.service.UserService;
 import pack.plantecompagnon.ui.register.*;
 
@@ -22,8 +21,6 @@ public class ConnexionActivity extends AppCompatActivity {
 
     private EditText pseudo;
     private EditText password;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +68,6 @@ public class ConnexionActivity extends AppCompatActivity {
 
         //détruire le service pour éviter les fuites mémoires
         userService.shutdownExecutor();
-
     }
 
     //quand on clique sur le bouton register
@@ -80,5 +76,4 @@ public class ConnexionActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
-
 }

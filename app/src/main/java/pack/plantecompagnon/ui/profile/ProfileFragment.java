@@ -36,7 +36,6 @@ public class ProfileFragment extends Fragment {
 
     private View root;
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -64,17 +63,9 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-
         initInformations();
 
         return root;
-    }
-
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
     }
 
     private void initInformations() {
@@ -103,7 +94,6 @@ public class ProfileFragment extends Fragment {
                 } else {
                     nbPlantText.setText("Parent de ");
                 }
-
 
                 emailText.setText(emailText.getText() + userDB.getEmail());
                 String date[] = parseDate(userDB.getBirthDate());
@@ -148,7 +138,6 @@ public class ProfileFragment extends Fragment {
         };
 
         userService2.getNumberUserPlant(pseudo, callback);
-
     }
 
 
@@ -172,5 +161,8 @@ public class ProfileFragment extends Fragment {
         onDestroyView();
     }
 
-
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 }

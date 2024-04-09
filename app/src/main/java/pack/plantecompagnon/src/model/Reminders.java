@@ -58,47 +58,6 @@ public class Reminders {
         this.userPlantId = userPlantId;
     }
 
-    /*
-    //Méthodes
-
-    public void setNewReminder(Date dateNextReminder) {
-
-    }
-
-    public void modifyReminder() {
-
-    }
-
-    public void deleteReminder() {
-
-    }
-
-    public Date getNextReminder() {
-
-        return next;
-    }
-
-    public void enableReminder() {
-
-    }
-
-    public void disableReminder() {
-
-    }
-
-    public void notifyUser() {
-
-    }
-
-    public void validateReminder() {
-
-    }
-
-    public void snoozeReminder() {
-
-    }
-
-     */
 }
 
 

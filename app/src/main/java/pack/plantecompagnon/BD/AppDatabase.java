@@ -8,7 +8,7 @@ import pack.plantecompagnon.src.DAO.UserPlantDao;
 import pack.plantecompagnon.src.model.User;
 import pack.plantecompagnon.src.model.UserPlant;
 
-@Database(entities = {User.class, UserPlant.class}, version = 3)
+@Database(entities = {User.class, UserPlant.class}, version = 4)
 public abstract class AppDatabase extends RoomDatabase {
     //tous les DAOs de mon app ici
     public abstract UserDao userDao();

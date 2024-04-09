@@ -1,9 +1,8 @@
 package pack.plantecompagnon.src.model;
 
-import java.util.List;
-
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
 @Entity
 public class Plant {
     @PrimaryKey
@@ -74,29 +73,5 @@ public class Plant {
     public void setPicture(String picture) {
         this.picture = picture;
     }
-
-    /*
-    // Méthodes
-    public void addNewPlant() {
-
-    }
-
-    public void modifyPlant() {
-
-    }
-
-    public void deletePlant() {
-
-    }
-
-    public List<Plant> findPlant(String search) {
-        return null;
-    }
-
-    public List<Plant> getListAllPlant() {
-        return null;
-    }
-
-     */
 
 }

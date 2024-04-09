@@ -1,9 +1,5 @@
 package pack.plantecompagnon.src.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -23,13 +19,8 @@ public class User {
     private String city;
     private String picture;
 
-    //encore utile les arrayLists ???
-    @Ignore
-    private ArrayList<PlantWishlist> wishlist;
-    @Ignore
-    private ArrayList<UserPlant> userPlantList;
 
-    public User(String pseudo, String email, String birthDate, String password, String gender, String city, String picture) {
+    public User(@NonNull String pseudo, String email, String birthDate, String password, String gender, String city, String picture) {
         this.pseudo = pseudo;
         this.email = email;
         this.birthDate = birthDate;
@@ -38,17 +29,16 @@ public class User {
         this.city = city;
         this.picture = picture;
 
-        wishlist = new ArrayList<PlantWishlist>();
-        userPlantList = new ArrayList<UserPlant>();
     }
 
     //Getters and setters
 
+    @NonNull
     public String getPseudo() {
         return pseudo;
     }
 
-    public void setPseudo(String pseudo) {
+    public void setPseudo(@NonNull String pseudo) {
         this.pseudo = pseudo;
     }
 
@@ -108,20 +98,4 @@ public class User {
         this.picture = picture;
     }
 
-    /*
-    public ArrayList<PlantWishlist> getWishlist() {
-        return wishlist;
-    }
-
-    public void setWishlist(ArrayList<PlantWishlist> wishlist) {
-        this.wishlist = wishlist;
-    }
-
-    public ArrayList<UserPlant> getUserPlantList() {
-        return userPlantList;
-    }
-
-    public void setUserPlantList(ArrayList<UserPlant> userPlantList) {
-        this.userPlantList = userPlantList;
-    }*/
 }
