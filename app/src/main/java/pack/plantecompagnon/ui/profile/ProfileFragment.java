@@ -1,25 +1,20 @@
 package pack.plantecompagnon.ui.profile;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.util.Consumer;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import pack.plantecompagnon.BD.DatabaseClient;
 import pack.plantecompagnon.MainActivity;
 import pack.plantecompagnon.R;
-import pack.plantecompagnon.databinding.FragmentProfileBinding;
 import pack.plantecompagnon.src.DAO.UserDao;
 import pack.plantecompagnon.src.model.GenderList;
 import pack.plantecompagnon.src.model.User;
@@ -27,14 +22,9 @@ import pack.plantecompagnon.src.service.UserService;
 
 public class ProfileFragment extends Fragment {
 
-    private FragmentProfileBinding binding;
-
     private TextView pseudoText;
-
     private TextView nbPlantText;
     private TextView emailText;
-
-
     private TextView birthDateText;
     private TextView genderText;
     private TextView cityText;
@@ -44,10 +34,12 @@ public class ProfileFragment extends Fragment {
 
     private String pseudo = "";
 
+    private View root;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        root = inflater.inflate(R.layout.fragment_profile, container, false);
 
         pseudoText = root.findViewById(R.id.pseudoProfile);
         nbPlantText = root.findViewById(R.id.nbPlantesProfile);
@@ -83,7 +75,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
     }
 
     private void initInformations() {
@@ -103,15 +94,17 @@ public class ProfileFragment extends Fragment {
                 //actualiser la vue avec les informations de l'utilisateur
                 pseudoText.setText(userDB.getPseudo());
 
-                // TODO: 25/03/2024 A changer le nombre de plantes
+                initNbPlant(userDB.getGender());
 
                 if(userDB.getGender().toUpperCase().equals(GenderList.FEMININ.toString())){
-                    nbPlantText.setText("Mère de " + 0 + " plantes");
+                    nbPlantText.setText("Mère de ");
                 } else if (userDB.getGender().toUpperCase().equals(GenderList.MASCULIN.toString())){
-                    nbPlantText.setText("Père de " + 0 + " plantes");
+                    nbPlantText.setText("Père de ");
                 } else {
-                    nbPlantText.setText("Parent de " + 0 + " plantes");
+                    nbPlantText.setText("Parent de ");
                 }
+
+
                 emailText.setText(emailText.getText() + userDB.getEmail());
                 String date[] = parseDate(userDB.getBirthDate());
 
@@ -135,6 +128,29 @@ public class ProfileFragment extends Fragment {
         return new String[]{day, month, year};
     }
 
+    private void initNbPlant(String gender){
+
+        if(gender.toUpperCase().equals(GenderList.FEMININ.toString())){
+            nbPlantText.setText("Mère de ");
+        } else if (gender.toUpperCase().equals(GenderList.MASCULIN.toString())){
+            nbPlantText.setText("Père de ");
+        } else {
+            nbPlantText.setText("Parent de ");
+        }
+
+        UserDao userDao = DatabaseClient.getInstance(getContext()).getAppDatabase().userDao();
+        UserService userService2 = new UserService(userDao);
+
+        Consumer<Integer> callback = nbPlant -> {
+            getActivity().runOnUiThread(() -> {
+                nbPlantText.setText(nbPlantText.getText() + Integer.toString(nbPlant) + " plantes");
+            });
+        };
+
+        userService2.getNumberUserPlant(pseudo, callback);
+
+    }
+
 
     // TODO: 21/03/2024 : implémenter cette méthode (doit créer une page de modification....) 
     //quand on clique sur le bouton modifier le profile
@@ -152,6 +168,8 @@ public class ProfileFragment extends Fragment {
         UserService userService = new UserService(userDao);
 
         //userService.deleteAccount(pseudo);
+
+        onDestroyView();
     }
 
 
