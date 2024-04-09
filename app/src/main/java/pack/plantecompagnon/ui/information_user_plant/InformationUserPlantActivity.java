@@ -26,7 +26,7 @@ public class InformationUserPlantActivity extends AppCompatActivity {
     private TextView originTextView;
     private TextView notesTextView;
 
-    private String id = "";
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class InformationUserPlantActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         if(intent != null){
-            id = intent.getStringExtra("id");
+            id = intent.getIntExtra("id", id);
         }
 
         nameTextView = findViewById(R.id.namePagePlant);
@@ -50,7 +50,7 @@ public class InformationUserPlantActivity extends AppCompatActivity {
         notesTextView = findViewById(R.id.notesPagePlant);
 
         // TODO: 04/04/2024 changer le numéro id pour le récupérer par la page qui appel this 
-        int id = 1;
+
         initInformation(id);
 
     }

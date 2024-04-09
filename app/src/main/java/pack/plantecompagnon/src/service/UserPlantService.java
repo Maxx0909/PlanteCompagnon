@@ -79,11 +79,12 @@ public class UserPlantService {
         });
     }
 
-
+    //pour la recherche
     public List<UserPlant> findUserPlant(String search) {
         return null;
     }
 
+    //pour afficher que les plantes favorites
     public List<UserPlant> getAllFavorite() {
         return null;
     }
@@ -94,6 +95,14 @@ public class UserPlantService {
             new Handler(Looper.getMainLooper()).post(() -> callback.accept(userPlant));
         });
     }
+
+    public void getAllUserPlant(String pseudo, Consumer<List<UserPlant>> callback){
+        executorService.execute(() -> {
+            List<UserPlant> userPlant = userPlantDao.getAllUserPlant(pseudo);
+            new Handler(Looper.getMainLooper()).post(() -> callback.accept(userPlant));
+        });
+    }
+
 
     /*
     public List<Reminders> getAllPlantReminders() {
